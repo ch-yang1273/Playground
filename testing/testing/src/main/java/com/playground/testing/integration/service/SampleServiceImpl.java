@@ -1,4 +1,4 @@
-package com.playground.testing.service;
+package com.playground.testing.integration.service;
 
 import org.springframework.stereotype.Service;
 

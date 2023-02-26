@@ -1,6 +1,6 @@
-package com.playground.testing.controller;
+package com.playground.testing.integration.controller;
 
-import com.playground.testing.service.SampleService;
+import com.playground.testing.integration.service.SampleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
