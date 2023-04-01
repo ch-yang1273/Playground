@@ -27,7 +27,7 @@ class TheaterTest {
         System.out.println(ticketOffice);
         System.out.println(invitedAudience.getBag());
         System.out.println(audience.getBag());
-        
+
         //when
         theater.enter(invitedAudience);
         theater.enter(audience);
