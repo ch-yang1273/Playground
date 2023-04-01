@@ -16,8 +16,6 @@ public class MyEventsPublisher {
 
     public void raise(Object event) {
         log.info("MyEventsPublisher.raise");
-        if (publisher != null) {
-            publisher.publishEvent(event);
-        }
+		publisher.publishEvent(event);
     }
 }
