@@ -1,13 +1,10 @@
 package study.enevt.order;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.boot.test.mock.mockito.SpyBean;
 import org.springframework.test.context.event.ApplicationEvents;
 import org.springframework.test.context.event.RecordApplicationEvents;
 import study.enevt.config.MyEventsPublisher;
@@ -21,7 +18,7 @@ import static org.mockito.Mockito.*;
 @SpringBootTest
 class OrderTest {
 
-    @MockBean
+    @SpyBean
     private OrderCanceledEventHandler handler;
 
     @Autowired
@@ -36,9 +33,9 @@ class OrderTest {
         order.cancel(LocalDateTime.now(), publisher);
 
         // 1. Mockito로 EventListener 가 호출되었는지 확인
-        verify(handler, times(1)).handle(any(OrderCanceledEvent.class));
+        verify(handler, times(1)).handle1(any(OrderCanceledEvent.class));
 
-        // 2. @RecordApplicationEvents 발생된 OrderCanceledEvent 횟수를 확인
+        // 2. @RecordApplicationEvents 발행된 OrderCanceledEvent 횟수를 확인
         int count = (int) events.stream(OrderCanceledEvent.class).count();
         assertThat(count).isEqualTo(1);
     }
