@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mybatis.member.repository.MemberMapper">
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO MEMBER (NAME, BIRTH_YEAR)
+        VALUES (#{name}, #{birthYear})
+    </insert>
+
+    <update id="update">
+        UPDATE MEMBER
+        SET NAME = #{updateParam.name},
+            BIRTH_YEAR = #{updateParam.birthYear}
+        WHERE ID = #{id}
+    </update>
+
+    <delete id="delete">
+        DELETE
+        FROM MEMBER
+        WHERE ID = #{id}
+    </delete>
+
+    <select id="findById" resultType="Member">
+        SELECT *
+        FROM MEMBER
+        WHERE ID = #{id}
+    </select>
+
+    <select id="findAll" resultType="Member">
+        SELECT *
+        FROM MEMBER
+        <where>
+            <if test="name != null and name != ''">
+                and NAME like concat('%', #{name}, '%')
+            </if>
+            <if test="birthYearBefore != null">
+                and BIRTH_YEAR &lt;= #{birthYearBefore}
+            </if>
+        </where>
+        <if test="orderBy != null">
+            ORDER BY ${orderBy.orderCriteria}
+        </if>
+    </select>
+</mapper>

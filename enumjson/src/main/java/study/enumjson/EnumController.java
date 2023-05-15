@@ -45,13 +45,13 @@ public class EnumController {
     /**
      * @JsonValue이 붙은 메서드에서 반환하는 값으로 반환된다.
      * {
-     *     "name": "test 2",
+     *     "name": "test 1",
      *     "anEnum": "underscore"
      * }
      */
     @GetMapping("/v2")
     public ResponseEntity<EnumDtoV2> testResponseV2() {
-        return ResponseEntity.ok().body(new EnumDtoV2("test 2", MyEnumV2.UNDER_SCORE));
+        return ResponseEntity.ok().body(new EnumDtoV2("test 1", MyEnumV2.UNDER_SCORE));
     }
 
     /**
@@ -70,7 +70,7 @@ public class EnumController {
      * 옵션을 주면 Enum 클래스의 필드 전체를 반환해줄 수 있다.
      * 이 때 Getter가 없으면 에러도 없이 빈 객체가 나가는 것 주의. "enum": {}
      * {
-     *     "name": "test 3",
+     *     "name": "test 1",
      *     "enum": {
      *         "value": "underscore",
      *         "num": 200
@@ -81,6 +81,6 @@ public class EnumController {
      */
     @GetMapping("/v3")
     public ResponseEntity<EnumDtoV3> testResponseV3() {
-        return ResponseEntity.ok().body(new EnumDtoV3("test 3", MyEnumV3.UNDER_SCORE));
+        return ResponseEntity.ok().body(new EnumDtoV3("test 1", MyEnumV3.UNDER_SCORE));
     }
 }

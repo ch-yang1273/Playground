@@ -1,4 +1,4 @@
-package com.example.mybatis.Member.domain;
+package com.example.mybatis.member.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
