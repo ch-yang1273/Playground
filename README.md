@@ -1,3 +1,3 @@
 ## README
 
-- [Enum 필드를 포함하는 Response, Request DTO 사용 테스트](https://github.com/ch-yang1273/Playground/blob/master/enumjson/README.md)
+- [JSON과 Enum 필드 상호 변환 : @JsonValue, @JsonCreator, @JsonFormat (+@JsonProperty)](https://github.com/ch-yang1273/Playground/blob/master/enumjson/README.md)
