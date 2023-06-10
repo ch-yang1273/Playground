@@ -10,6 +10,9 @@ import org.springframework.security.web.SecurityFilterChain;
  * 공식 블로그: https://spring.io/blog/2022/02/21/spring-security-without-the-websecurityconfigureradapter
  * 컴포넌트 기반의 보안 설정으로 전환을 권장
  * WebSecurityConfigurerAdapter을 상속해서 생성하는 것이 보안 설정의 유연성을 제한하는 것이 문제였던 것 같다.
+ * Spring Security가 제공하는 기본 Login form과 Logout form을 사용한다.
+ * Login URL : "/login"
+ * Logout URL : "/logout"
  */
 //@Configuration
 public class SecurityConfigV2 {

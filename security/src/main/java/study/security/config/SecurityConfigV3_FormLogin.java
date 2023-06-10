@@ -4,6 +4,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+
+import javax.servlet.http.HttpSession;
 
 @Configuration
 public class SecurityConfigV3_FormLogin {
@@ -11,7 +14,7 @@ public class SecurityConfigV3_FormLogin {
     /**
      * authorizeRequests() : HTTP 서블릿 요청에 대한 보안을 구성할 때 사용한다.
      * anyRequest().authenticated() : 어떤 요청에 대해서든 인증을 받은 사용자만 접근을 허용한다.
-     * -
+     * **********
      * formLogin : form 로그인 방식의 인증을 한다.
      * loginPage : 로그인이 필요할 때, 이 경로로 Redirecting 된다. 로그인폼을 반환해줘야 한다.
      * defaultSuccessUrl : 로그인 성공 시, 이 경로로 Redirecting 된다.
@@ -29,6 +32,10 @@ public class SecurityConfigV3_FormLogin {
      *   - 특별한 경우 아니면 호출할 필요 없겠다.
      * permitAll : formLogin()에 연결되어 있다. 로그인 페이지와 관련된 모든 요청만 접근을 허용
      *   - formLogin().permitAll() 은 위의 anyRequest().authenticated() 보다 우선 순위가 높다.
+     * **********
+     * deleteCookies : 쿠키 삭제. 여기서는 세션 ID와 remember-me 쿠키를 삭제했다.
+     * addLogoutHandler : 로그아웃을 처리하는 핸들러 설정. 안하면 기본 핸들러를 사용한다.
+     * logoutSuccessHandler : 로그아웃 성공 후 실행되는 핸들러. 안하면 기본 핸들러를 사용한다.
      */
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -40,19 +47,19 @@ public class SecurityConfigV3_FormLogin {
                 .and()
                 // 인증 정책
                 .formLogin()
-                .loginPage("/login-form")
+                .loginPage("/login-page")
                 .defaultSuccessUrl("/home")
-                .failureUrl("/login-form?error=true")
+                .failureUrl("/login-page?error=true")
                 .usernameParameter("username")
                 .passwordParameter("password")
-                .loginProcessingUrl("/login")
-//                .successHandler(
-//                        (req, resp, auth) -> System.out.println("Success Handler")
-//                )
-//                .failureHandler(
-//                        (req, resp, exception) -> System.out.println("Failure Handler")
-//                )
-                .permitAll();
+                .loginProcessingUrl("/login-proc")
+                .permitAll() // formLogin에서 설정한 경로에 대한 permitAll()
+                .and()
+                // logout 정책
+                .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout-page", "GET"))
+                .logoutSuccessUrl("/login-page")
+                .deleteCookies("JSESSIONID", "remember-me");
 
         return http.build();
     }

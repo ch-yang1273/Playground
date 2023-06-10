@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{layout/header :: defaultHead(~{::title})}">
-  <title>login form</title>
+  <title>login page</title>
 </head>
 <body>
 <nav th:replace="~{layout/top :: defaultTop}"></nav>
 <div class="container">
-  <h1>Login Form</h1>
+  <h1>Login Page</h1>
   <div class="row">
     <h4 class="col-12">아이디와 비밀번호를 입력해주세요</h4>
-    <form th:action="@{/login}" class="col-12" method="post">
+    <form th:action="@{/login-proc}" class="col-12" method="post">
       <div class="form-group">
         <label for="username">Username</label>
         <input type="text" class="form-control" id="username" name="username" placeholder="아이디" required="required"

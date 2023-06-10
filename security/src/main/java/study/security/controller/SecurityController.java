@@ -13,9 +13,9 @@ public class SecurityController {
         return "home";
     }
 
-    @GetMapping("/login-form")
-    public String loginForm() {
-        System.out.println("SecurityController.loginForm");
-        return "login-form";
+    @GetMapping("/login-page")
+    public String login() {
+        System.out.println("SecurityController.login");
+        return "login";
     }
 }
