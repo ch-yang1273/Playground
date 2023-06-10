@@ -9,8 +9,10 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfigV3_FormLogin {
 
     /**
+     * authorizeRequests() : HTTP 서블릿 요청에 대한 보안을 구성할 때 사용한다.
      * anyRequest().authenticated() : 어떤 요청에 대해서든 인증을 받은 사용자만 접근을 허용한다.
      * -
+     * formLogin : form 로그인 방식의 인증을 한다.
      * loginPage : 로그인이 필요할 때, 이 경로로 Redirecting 된다. 로그인폼을 반환해줘야 한다.
      * defaultSuccessUrl : 로그인 성공 시, 이 경로로 Redirecting 된다.
      * failureUrl : 로그인 실패 시, 이 경로로 Redirecting 된다.
