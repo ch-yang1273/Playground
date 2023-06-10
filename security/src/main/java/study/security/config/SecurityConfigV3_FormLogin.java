@@ -1,15 +1,19 @@
 package study.security.config;
 
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import javax.servlet.http.HttpSession;
-
+@RequiredArgsConstructor
 @Configuration
 public class SecurityConfigV3_FormLogin {
+
+    private final UserDetailsService userDetailsService;
 
     /**
      * authorizeRequests() : HTTP 서블릿 요청에 대한 보안을 구성할 때 사용한다.
@@ -36,6 +40,10 @@ public class SecurityConfigV3_FormLogin {
      * deleteCookies : 쿠키 삭제. 여기서는 세션 ID와 remember-me 쿠키를 삭제했다.
      * addLogoutHandler : 로그아웃을 처리하는 핸들러 설정. 안하면 기본 핸들러를 사용한다.
      * logoutSuccessHandler : 로그아웃 성공 후 실행되는 핸들러. 안하면 기본 핸들러를 사용한다.
+     * **********
+     * rememberMeParameter : 쿠키, 파라미터
+     * tokenValiditySeconds : 쿠키 유효 시간 설정. default는 14일
+     * userDetailsService : 사용자의 정보를 불러온다.
      */
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -48,7 +56,7 @@ public class SecurityConfigV3_FormLogin {
                 // 인증 정책
                 .formLogin()
                 .loginPage("/login-page")
-                .defaultSuccessUrl("/home")
+                .defaultSuccessUrl("/")
                 .failureUrl("/login-page?error=true")
                 .usernameParameter("username")
                 .passwordParameter("password")
@@ -59,7 +67,13 @@ public class SecurityConfigV3_FormLogin {
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout-page", "GET"))
                 .logoutSuccessUrl("/login-page")
-                .deleteCookies("JSESSIONID", "remember-me");
+                .deleteCookies("JSESSIONID", "remember-me")
+                .and()
+                // Remember-me
+                .rememberMe() // remember me 설정 시작
+                .rememberMeParameter("remember-me")
+                .tokenValiditySeconds(3600)
+                .userDetailsService(userDetailsService);
 
         return http.build();
     }
