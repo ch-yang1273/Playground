@@ -42,3 +42,36 @@ public class Settings {
 
 - "퍼사드"라는 단어는 프랑스어로, 건물의 정면이나 외관을 의미한다.
 - "퍼사드"는 복잡한 내부 시스템을 감추고 간단한 인터페이스를 제공함으로써, 코드를 단순화하는 디자인 패턴이다.
+
+["퍼사드" 적용 전](GOF_Design_Pattern/pattern/src/main/java/com/study/pattern/facade/Client.java)
+
+```java
+public class Client {
+
+    public void send() {
+        EmailSettings setting = new EmailSettings("mail.example.com", "user", "password");
+        EmailServer server = new EmailServer();
+        EmailMessage message = new EmailMessage("test@example.com", "Hello, World!");
+
+        server.connect(setting);
+        server.authenticate(setting);
+        server.send(message);
+        server.disconnect();
+    }
+}
+```
+
+["퍼사드" 적용 후](GOF_Design_Pattern/pattern/src/main/java/com/study/pattern/facade/ClientUsingFacade.java)
+
+```java
+public class ClientUsingFacade {
+
+    public void send() {
+        EmailSettings setting = new EmailSettings("mail.example.com", "user", "password");
+        EmailFacade facade = new EmailFacade(setting);
+        EmailMessage message = new EmailMessage("test@example.com", "Hello, World!");
+
+        facade.sendEmail(message);
+    }
+}
+```
