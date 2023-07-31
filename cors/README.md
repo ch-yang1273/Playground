@@ -56,8 +56,8 @@ Preflight Request의 응답 헤더에서는 CORS 관련해서 다음의 헤더�
 - Access-Control-Allow-Origin: 서버가 요청을 받아들일 수 있는 출처(origin)
 - Access-Control-Allow-Methods: 서버가 허용하는 HTTP 메소드
 - Access-Control-Allow-Headers: 서버가 허용하는 요청 헤더
-- Access-Control-Allow-Credentials : 서버가 크리덴셜을 허용하는지를 나타낸다.
-- Access-Control-Max-Age : preflight 요청의 결과를 캐시(cache)할 수 있는 최대 시간을 초 단위로 나타낸다.
+- Access-Control-Allow-Credentials : 서버의 크리덴셜을 허용 여부
+- Access-Control-Max-Age : preflight 요청의 결과를 캐시(cache)할 수 있는 최대 시간(초 단위)
 
 ## Spring 서버의 Cors 정책 설정
 
@@ -110,9 +110,9 @@ public class SecurityConfig {
 ※ Credentials
 
 여기서 Credentials은 쿠키, 인증 헤더(Authentication) 등을 말한다.
-setAllowCredentials(true)로 설정하면 이런 Credentials를 포함한 요청을 보낼 수 있게 된다.
+setAllowCredentials(true)로 설정하면 이런 Credentials를 포함한 요청을 허용한다.
 
-응답 헤더에는 `Access-Control-Allow-Credentials`를 true로 설정하여, Credentials를 허용함을 알릴 수 있다.
+응답 헤더에는 `Access-Control-Allow-Credentials`를 true로 설정하여, Credentials를 허용함을 알린다.
 
 setAllowCredentials()를 true로 설정하면 `configuration.addAllowedOrigin("*")`에서 에러가 발생하는데,
 이는 CORS 명세에서 `Access-Control-Allow-Credentials`가 true 일 때 `Access-Control-Allow-Origin`이 와일드 카드("*")가 될 수 없음을 명시 했기 때문이다.
@@ -130,10 +130,10 @@ CORS 테스트를 위해서는 출처가 다른 두 개의 서버가 필요하�
 
 이 테스트에서는 클라이언트 서버는 `https://test-cors.org`를 사용하고, SpringBoot로 API 서버만 구성한다.
 
-SpringBoot의 Dependency는 `Web`과 `Security`만 추가한다.
+SpringBoot 프로젝트에 Dependency는 `Web`과 `Security`만 추가한다.
 
 ※ [https://test-cors.org](https://test-cors.org) 사이트를 이용하면,
-CORS 테스트를 위한 클라이언트 서버를 따로 구성하지 않아도 되서 편하다. localhost 서버도 테스트가 가능하다.
+CORS 테스트를 위한 클라이언트 서버를 따로 구성하지 않아도 되어 간편하다. localhost 서버도 테스트가 가능하다.
 <U>http</U>://test-cors.org 페이지에서는 테스트가 정상적으로 되지 않으니 프로토콜이 `https`가 맞는지 확인!
 
 CORS 테스트의 요청과 응답은 `https://test-cors.org` 페이지에서 개발자 모드(F12)로 확인한다.
