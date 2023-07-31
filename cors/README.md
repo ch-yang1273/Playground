@@ -1,4 +1,4 @@
-# CORS 개념과 Spring 서버에서의 CORS 테스트
+# CORS 개념과 Spring 서버에서의 CORS 설정 및 테스트
 
 ## 동일 출처 정책 (Same-Origin Policy)
 
