@@ -7,7 +7,7 @@
 
 1. synchronized
 
-getInstance()를 호출할 때 마다 synchronized가 적용되어 약간의 성능 저하가 발생한다.
+- getInstance()를 호출할 때 마다 synchronized가 적용되어 약간의 성능 저하가 발생한다.
 
 ```java
 public class Settings {
@@ -27,7 +27,7 @@ public class Settings {
 
 2. double checked locking
 
-getInstance()를 호출할 때 인스턴스가 없을 때만 synchronized가 적용된다.
+- getInstance()를 호출할 때 인스턴스가 없을 때만 synchronized가 적용된다.
 
 ```java
 public class Settings {
@@ -97,6 +97,13 @@ public class Settings {
     }
 }
 ```
+
+## Factory method 패턴
+
+- 객체 생성에 관련된 로직을 서브 클래스에 위임한다.
+- 인스턴스를 생성하는 책임을 구체적인 클래스가 아닌, 추상적인 인터페이스의 메서드로 감싼다.
+
+
 
 ## Facade Pattern
 

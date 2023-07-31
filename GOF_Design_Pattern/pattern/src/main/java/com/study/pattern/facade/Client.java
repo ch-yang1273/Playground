@@ -6,7 +6,7 @@ import com.study.pattern.facade.module.EmailSettings;
 
 public class Client {
 
-    public void send() {
+    public static void main(String[] args) {
         EmailSettings setting = new EmailSettings("mail.example.com", "user", "password");
         EmailServer server = new EmailServer();
         EmailMessage message = new EmailMessage("test@example.com", "Hello, World!");
