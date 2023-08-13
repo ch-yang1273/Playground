@@ -103,7 +103,7 @@ public class Settings {
 - 객체 생성에 관련된 로직을 서브 클래스에 위임한다.
 - 인스턴스를 생성하는 책임을 구체적인 클래스가 아닌, 추상적인 인터페이스의 메서드로 감싼다.
 
-
+### ["팩토리 메서드" 적용 전](GOF_Design_Pattern/pattern/src/main/java/com/study/pattern/_01_creational/factory/_01_before/VehicleFactory.java)
 
 ## Facade Pattern
 

@@ -7,24 +7,25 @@ import lombok.Setter;
 @Setter
 public class VehicleFactory {
 
-    public static Vehicle orderVehicle(String type, String email) {
-        if (type == null || type.isBlank()) {
+    public static Vehicle orderVehicle(String name, String email) {
+        // Validation
+        if (name == null || name.isBlank()) {
             throw new IllegalArgumentException("차량 이름를 지정해주세요.");
         }
         if (email == null || email.isBlank()) {
             throw new IllegalArgumentException("연락처를 남겨주세요.");
         }
 
-        prepareFor(type);
+        prepareFor(name);
 
         Vehicle vehicle = new Vehicle();
-        vehicle.setName(type);
+        vehicle.setName(name);
 
-        // Customizing for specific type
-        if (type.equalsIgnoreCase("TeslaCar")) {
+        // Customizing for specific name
+        if (name.equalsIgnoreCase("TeslaCar")) {
             vehicle.setBrand("Tesla");
             vehicle.setColor("red");
-        } else if (type.equalsIgnoreCase("HyundaiCar")) {
+        } else if (name.equalsIgnoreCase("HyundaiCar")) {
             vehicle.setBrand("Hyundai");
             vehicle.setColor("black");
         }
@@ -35,8 +36,8 @@ public class VehicleFactory {
         return vehicle;
     }
 
-    private static void prepareFor(String type) {
-        System.out.println(type + " 만들 준비 중");
+    private static void prepareFor(String name) {
+        System.out.println(name + " 만들 준비 중");
     }
 
     private static void sendEmailTo(String email, Vehicle vehicle) {
