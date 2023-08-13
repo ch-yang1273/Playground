@@ -103,12 +103,12 @@ public class Settings {
 - 객체 생성에 관련된 로직을 서브 클래스에 위임한다.
 - 인스턴스를 생성하는 책임을 구체적인 클래스가 아닌, 추상적인 인터페이스의 메서드로 감싼다.
 
-### ["팩토리 메서드" 적용 전](GOF_Design_Pattern/pattern/src/main/java/com/study/pattern/_01_creational/factory/_01_before)
+### ["팩토리 메서드" 적용 전](src/main/java/com/study/pattern/_01_creational/factory/_01_before)
 
 - 요구 조건이 추가 될 때 마다, 기존 코드를 수정해야 한다.
 - 조건을 따르는 생성 코드가 복잡하다.
 
-### ["팩토리 메서드" 적용 후](GOF_Design_Pattern/pattern/src/main/java/com/study/pattern/_01_creational/factory/_02_after)
+### ["팩토리 메서드" 적용 후](src/main/java/com/study/pattern/_01_creational/factory/_02_after)
 
 - Product와 Creator 간의 커플링이 느슨해졌다.
 - OCP 원칙(개방-폐쇄 원칙: 확장에는 열려있고 변경에는 닫혀있는)을 지킬 수 있다.
@@ -119,7 +119,7 @@ public class Settings {
 - "퍼사드"라는 단어는 프랑스어로, 건물의 정면이나 외관을 의미한다.
 - "퍼사드"는 복잡한 내부 시스템을 감추고 간단한 인터페이스를 제공함으로써, 코드를 단순화하는 디자인 패턴이다.
 
-### ["퍼사드" 적용 전](https://github.com/ch-yang1273/Playground/blob/master/GOF_Design_Pattern/pattern/src/main/java/com/study/pattern/_02_structural/facade/Client.java)
+### ["퍼사드" 적용 전](src/main/java/com/study/pattern/_02_structural/facade/Client.java)
 
 ```java
 public class Client {
@@ -137,7 +137,7 @@ public class Client {
 }
 ```
 
-### ["퍼사드" 적용 후](https://github.com/ch-yang1273/Playground/blob/master/GOF_Design_Pattern/pattern/src/main/java/com/study/pattern/_02_structural/facade/ClientUsingFacade.java)
+### ["퍼사드" 적용 후](src/main/java/com/study/pattern/_02_structural/facade/ClientUsingFacade.java)
 
 ```java
 public class ClientUsingFacade {
