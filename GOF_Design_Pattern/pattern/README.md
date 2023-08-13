@@ -1,6 +1,17 @@
 # GOF Design Pattern
 
-## Singleton Pattern
+## 목차
+
+### Creational Patterns
+- [Singleton](#singleton)
+- [Factory method](#factory-method)
+
+### Structural Patterns
+- [Facade](#facade)
+
+### Behavioral Patterns
+
+## Singleton
 
 - 객체의 인스턴스가 오직 1개만 생성되는 패턴이다.
 - 아래 예시와 같이 Thread-Safe하게 Singleton 클래스를 생성하기 위한 여러 방법이 있다.
@@ -98,7 +109,7 @@ public class Settings {
 }
 ```
 
-## Factory method 패턴
+## Factory method
 
 - 객체 생성에 관련된 로직을 서브 클래스에 위임한다.
 - 인스턴스를 생성하는 책임을 구체적인 클래스가 아닌, 추상적인 인터페이스의 메서드로 감싼다.
@@ -114,7 +125,7 @@ public class Settings {
 - OCP 원칙(개방-폐쇄 원칙: 확장에는 열려있고 변경에는 닫혀있는)을 지킬 수 있다.
 - 역할에 따른 클래스가 많아지는 단점이 있다.
 
-## Facade Pattern
+## Facade
 
 - "퍼사드"라는 단어는 프랑스어로, 건물의 정면이나 외관을 의미한다.
 - "퍼사드"는 복잡한 내부 시스템을 감추고 간단한 인터페이스를 제공함으로써, 코드를 단순화하는 디자인 패턴이다.
