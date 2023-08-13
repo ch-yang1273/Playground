@@ -1,4 +1,4 @@
-package com.study.pattern.factory._01_before;
+package com.study.pattern._01_creational.factory._01_before;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -9,7 +9,7 @@ public class VehicleFactory {
 
     public static Vehicle orderVehicle(String type, String email) {
         if (type == null || type.isBlank()) {
-            throw new IllegalArgumentException("차량 종류를 지정해주세요.");
+            throw new IllegalArgumentException("차량 이름를 지정해주세요.");
         }
         if (email == null || email.isBlank()) {
             throw new IllegalArgumentException("연락처를 남겨주세요.");
@@ -21,11 +21,11 @@ public class VehicleFactory {
         vehicle.setName(type);
 
         // Customizing for specific type
-        if (type.equalsIgnoreCase("car")) {
+        if (type.equalsIgnoreCase("TeslaCar")) {
             vehicle.setBrand("Tesla");
             vehicle.setColor("red");
-        } else if (type.equalsIgnoreCase("motorcycle")) {
-            vehicle.setBrand("Harley");
+        } else if (type.equalsIgnoreCase("HyundaiCar")) {
+            vehicle.setBrand("Hyundai");
             vehicle.setColor("black");
         }
 
@@ -40,6 +40,6 @@ public class VehicleFactory {
     }
 
     private static void sendEmailTo(String email, Vehicle vehicle) {
-        System.out.println(vehicle.getName() + " 다 만들었습니다.");
+        System.out.println("to." + email + ": " + vehicle.getName() + " 다 만들었습니다.");
     }
 }

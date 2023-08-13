@@ -1,4 +1,4 @@
-package com.study.pattern.facade.module;
+package com.study.pattern._02_structural.facade.module;
 
 import lombok.Getter;
 

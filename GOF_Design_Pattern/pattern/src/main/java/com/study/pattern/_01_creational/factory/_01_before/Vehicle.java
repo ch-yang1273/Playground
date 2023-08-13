@@ -1,4 +1,4 @@
-package com.study.pattern.factory._01_before;
+package com.study.pattern._01_creational.factory._01_before;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +13,7 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return "Vehicle{" +
+        return " Vehicle{" +
                 "name='" + name + '\'' +
                 ", color='" + color + '\'' +
                 ", brand='" + brand + '\'' +

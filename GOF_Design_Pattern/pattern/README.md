@@ -110,7 +110,7 @@ public class Settings {
 - "퍼사드"라는 단어는 프랑스어로, 건물의 정면이나 외관을 의미한다.
 - "퍼사드"는 복잡한 내부 시스템을 감추고 간단한 인터페이스를 제공함으로써, 코드를 단순화하는 디자인 패턴이다.
 
-### ["퍼사드" 적용 전](GOF_Design_Pattern/pattern/src/main/java/com/study/pattern/facade/Client.java)
+### ["퍼사드" 적용 전](GOF_Design_Pattern/pattern/src/main/java/com/study/pattern/_02_structural/facade/Client.java)
 
 ```java
 public class Client {
@@ -128,7 +128,7 @@ public class Client {
 }
 ```
 
-### ["퍼사드" 적용 후](GOF_Design_Pattern/pattern/src/main/java/com/study/pattern/facade/ClientUsingFacade.java)
+### ["퍼사드" 적용 후](GOF_Design_Pattern/pattern/src/main/java/com/study/pattern/_02_structural/facade/ClientUsingFacade.java)
 
 ```java
 public class ClientUsingFacade {

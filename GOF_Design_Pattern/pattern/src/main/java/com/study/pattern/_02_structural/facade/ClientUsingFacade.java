@@ -1,7 +1,7 @@
-package com.study.pattern.facade;
+package com.study.pattern._02_structural.facade;
 
-import com.study.pattern.facade.module.EmailMessage;
-import com.study.pattern.facade.module.EmailSettings;
+import com.study.pattern._02_structural.facade.module.EmailMessage;
+import com.study.pattern._02_structural.facade.module.EmailSettings;
 
 public class ClientUsingFacade {
 
