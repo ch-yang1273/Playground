@@ -5,7 +5,7 @@
 - 객체의 인스턴스가 오직 1개만 생성되는 패턴이다.
 - 아래 예시와 같이 Thread-Safe하게 Singleton 클래스를 생성하기 위한 여러 방법이 있다.
 
-1. synchronized
+### 1. synchronized
 
 - getInstance()를 호출할 때 마다 synchronized가 적용되어 약간의 성능 저하가 발생한다.
 
@@ -25,7 +25,7 @@ public class Settings {
 }
 ```
 
-2. double checked locking
+### 2. double checked locking
 
 - getInstance()를 호출할 때 인스턴스가 없을 때만 synchronized가 적용된다.
 
@@ -41,7 +41,7 @@ public class Settings {
 }
 ```
 
-3. 이른 초기화 (Eager Initialization)
+### 3. 이른 초기화 (Eager Initialization)
 
 - 애플리케이션 로딩 시에 바로 생성된다.
 - 사용을 하지 않더라도 로딩 시에 무조건 생성하는 것이 단점
@@ -75,7 +75,7 @@ public class Settings {
 }
 ```
 
-4. static inner 클래스 사용
+### 4. static inner 클래스 사용
 
 - getInstance()를 최초로 호출할 때, INSTANCE가 초기화 된다.
 - [static inner class 는 언제 로드가 될까? 로드와 초기화?](https://kdhyo98.tistory.com/70)
@@ -110,7 +110,7 @@ public class Settings {
 - "퍼사드"라는 단어는 프랑스어로, 건물의 정면이나 외관을 의미한다.
 - "퍼사드"는 복잡한 내부 시스템을 감추고 간단한 인터페이스를 제공함으로써, 코드를 단순화하는 디자인 패턴이다.
 
-["퍼사드" 적용 전](GOF_Design_Pattern/pattern/src/main/java/com/study/pattern/facade/Client.java)
+### ["퍼사드" 적용 전](GOF_Design_Pattern/pattern/src/main/java/com/study/pattern/facade/Client.java)
 
 ```java
 public class Client {
@@ -128,7 +128,7 @@ public class Client {
 }
 ```
 
-["퍼사드" 적용 후](GOF_Design_Pattern/pattern/src/main/java/com/study/pattern/facade/ClientUsingFacade.java)
+### ["퍼사드" 적용 후](GOF_Design_Pattern/pattern/src/main/java/com/study/pattern/facade/ClientUsingFacade.java)
 
 ```java
 public class ClientUsingFacade {
