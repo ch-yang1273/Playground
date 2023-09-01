@@ -1,0 +1,14 @@
+= API Documentation
+:toc: left
+:icons: font
+:doctype: book
+
+== API
+
+=== Something
+
+==== Request
+include::{snippets}/http-request.adoc[]
+
+==== Response
+include::{snippets}/http-response.adoc[]
