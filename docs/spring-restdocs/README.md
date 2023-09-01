@@ -93,6 +93,9 @@ build {
 }
 ```
 
+### gradlew tasks --all
+![GradleTasks](https://user-images.githubusercontent.com/61798028/265035285-b8e190d9-a706-4c9a-b595-69a7ff52538a.png)
+
 ## test 수행
 - build/generated-snippets 디렉토리에 생성 된 .adoc(Asciidoc) 문서들이 생성 된다.
 
