@@ -1,2 +1,6 @@
-p {
-  color: blue; }
+.selector1,
+.selector2,
+.selector3 {
+  display: block;
+  width: 500px;
+  color: red; }

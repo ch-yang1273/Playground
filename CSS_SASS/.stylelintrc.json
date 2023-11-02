@@ -1,0 +1,11 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-prettier",
+    "stylelint-config-clean-order"
+  ],
+  "rules": {
+    "indentation": 2,
+    "color-hex-case": "lower"
+  }
+}
