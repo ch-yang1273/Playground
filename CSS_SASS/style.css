@@ -4,3 +4,6 @@
   display: block;
   width: 500px;
   color: red; }
+
+* {
+  font-family: 'Noto Sans KR', sans-serif; }
