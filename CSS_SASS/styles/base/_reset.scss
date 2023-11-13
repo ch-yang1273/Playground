@@ -1,16 +1,22 @@
 * {
   margin: 0;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: $font-main;
   box-sizing: border-box;
+  // font smoothing 검색하면 모질라에 나온다.
+  // font가 부드러워 진다 함.
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: $font-main;
+  font-size: $font-size-16;
 }
 
 body {
   // 강사의 강박: *, html, body 셋 다 해야 잘 먹더라
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: $font-main;
+  color: $primary;
 }
 
 h1 {

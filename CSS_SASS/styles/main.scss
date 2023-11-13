@@ -1,4 +1,6 @@
+// constants들은 CSS에 영향을 주지 않으니 상단에 쓰는 것이 좋다.
 @import './constants/colors';
+@import './constants/typography';
 
 @import './base/fonts';
 @import './base/normalize';
