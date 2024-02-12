@@ -1,3 +1,28 @@
+const position = {
+  x: 0,
+  y: 0,
+}
+
+type Direction = 'up' | 'down' | 'left' | 'right';
+const move = function (dirrection: Direction) {
+  switch (dirrection) {
+    case "up":
+      position.y++;
+      break;
+    case "down":
+      position.y--;
+      break;
+    case "left":
+      position.x--;
+      break;
+    case "right":
+      position.x++;
+      break;
+    default:
+      Error('Unknown Direction');
+  }
+}
+
 /**
  * Let's make a game 🕹
  */
