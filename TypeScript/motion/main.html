@@ -4,23 +4,46 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="./css/main.css" />
     <title>Motion</title>
+    <script src="-" crossorigin="anonymous"></script>
   </head>
   <body>
-    <!-- header -->
-    <header class="header">
-      <div class="header__title">
-        <h1>MOTION</h1>
-      </div>
-      <nav>
-        <ul class="header__navigations">
-          <li>Image</li>
-          <li>Video</li>
-          <li>Note</li>
-          <li>Task</li>
-        </ul>
-      </nav>
-    </header>
-    <section></section>
-    <footer></footer>
+    <div class="main-wrapper">
+      <!-- header -->
+      <header class="header">
+        <div class="header__title">
+          <h1>MOTION</h1>
+        </div>
+        <nav>
+          <ul class="header__navigations">
+            <li>
+              <button class="btn--red">Image</button>
+            </li>
+            <li>
+              <button class="btn--red">Video</button>
+            </li>
+            <li>
+              <button class="btn--red">Note</button>
+            </li>
+            <li>
+              <button class="btn--red">Task</button>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <section class="section">
+        <div class="card__contents">
+          <div class="card__content card__content--img">
+            <img src="https://picsum.photos/200/300" alt="랜덤이미지" />
+          </div>
+          <div class="card__content--title">
+            <p>Image</p>
+          </div>
+          <button class="card__content--btn-close">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </section>
+      <footer></footer>
+    </div>
   </body>
 </html>
