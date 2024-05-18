@@ -1,4 +1,5 @@
 *.zip
+.idea/
 
 ### Sass ###
 .sass-cache/
