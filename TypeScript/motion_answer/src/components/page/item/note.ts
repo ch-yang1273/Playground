@@ -9,7 +9,7 @@ export class NoteComponent extends BaseComponent<HTMLElement> {
 
     super(htmlString);
 
-    const titleElement = this.element.querySelector('.note__title')! as HTMLHeadElement;
+    const titleElement: HTMLHeadingElement = this.element.querySelector('.note__title')! as HTMLHeadingElement;
     titleElement.textContent = title;
     const bodyElement = this.element.querySelector('.note__body')! as HTMLParagraphElement;
     bodyElement.textContent = body;
