@@ -1,11 +1,11 @@
 {
-  "name": "@ch-yang1273/hello-2025",
+  "name": "@ch-yang1273/hello2025",
   "version": "1.0.0",
   "description": "A simple npm package that prints Hello World",
   "type": "module",
   "main": "index.js",
   "bin": {
-    "hello-2025": "./index.js"
+    "hello2025": "index.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
