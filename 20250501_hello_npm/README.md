@@ -1,27 +1,38 @@
 # @ch-yang1273/hello-2025
 
-A simple npm package that prints "Hello, World!" when executed with npx.
+단순히 "Hello, World!"를 출력하는 간단한 npm 패키지입니다.
 
-## Installation
+## 설치 및 실행 방법
 
-You can use this package without installing it:
+### 설치 없이 실행하기
 
-```
+패키지를 설치하지 않고 바로 실행할 수 있습니다:
+
+```bash
 npx @ch-yang1273/hello-2025
 ```
 
-Or install it globally:
+### 전역 설치 후 실행하기
 
-```
+패키지를 전역으로 설치합니다:
+
+```bash
 npm install -g @ch-yang1273/hello-2025
 ```
 
-Then run:
+설치 후 명령어로 실행합니다:
 
-```
+```bash
 hello-2025
 ```
 
-## License
+## 기능
+
+이 패키지는 실행 시 다음 정보를 출력합니다:
+- "Hello, World!" 메시지
+- 패키지 이름
+- 패키지 버전
+
+## 라이선스
 
 MIT
