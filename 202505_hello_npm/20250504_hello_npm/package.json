@@ -14,5 +14,8 @@
     "hello-npm": "bin.js"
   },
   "author": "ch-yang",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@ch-yang/hello-npm": "^1.0.1"
+  }
 }
