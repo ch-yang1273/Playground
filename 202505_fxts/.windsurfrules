@@ -1,0 +1,12 @@
+# 프로젝트 설정
+- 프로젝트 유형: Node.js (ESM)
+- 주요 패키지: fxtx, exceljs
+- 코드 스타일: ESM (import/export)
+- TypeScript 지원: 예
+
+# 디렉토리 구조
+- src/: 소스 코드
+- src/index.ts: 메인 엔트리포인트
+- package.json: 프로젝트 설정
+- tsconfig.json: TypeScript 설정
+- node_modules/: 의존성 패키지
