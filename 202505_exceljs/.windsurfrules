@@ -1,0 +1,9 @@
+# 프로젝트 설정
+- 프로젝트 유형: Node.js (ESM)
+- 주요 패키지: exceljs
+- 코드 스타일: ESM (import/export)
+
+# 디렉토리 구조
+- src/: 소스 코드
+- src/index.js: 메인 엔트리포인트
+- package.json: 프로젝트 설정

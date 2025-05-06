@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Build output
+*.xlsx
+*.xls
+
+# Environment variables
+.env
+.env.*
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+logs
+*.log
