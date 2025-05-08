@@ -1,0 +1,21 @@
+{
+  "name": "hello-mcp",
+  "version": "1.0.0",
+  "description": "hello mcp project",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts"
+  },
+  "bin": {
+    "hello-mcp": "bin.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.11.0",
+    "typescript": "^5.8.3"
+  }
+}
