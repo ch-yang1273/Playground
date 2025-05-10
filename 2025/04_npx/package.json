@@ -1,0 +1,17 @@
+{
+  "name": "2025-hello-npx",
+  "version": "1.0.0",
+  "description": "hello npx 프로젝트",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "clean": "rm -rf dist"
+  },
+  "devDependencies": {
+    "typescript": "5.3.3",
+    "@types/node": "20.11.25",
+    "ts-node": "10.9.2"
+  }
+}
