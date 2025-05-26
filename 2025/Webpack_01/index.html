@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./src/hello.js"></script>
-    <script src="./src/world.js"></script>
     <title>Webpack</title>
 </head>
 <body>
     <h1>Hello, Webpack!</h1>
     <div id="root">root</div>
-    <script>
-        document.getElementById('root').innerHTML = word;
+    <script type="module">
+        import hello_word from "./src/hello.js";
+        import world_word from "./src/world.js";
+        document.getElementById('root').innerHTML = hello_word + ' ' + world_word;
     </script>
 </body>
 </html>
