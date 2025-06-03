@@ -2,7 +2,17 @@
 
 Webpack을 사용한 Bundling 프로젝트
 
+## 서버 실행 테스트
 
+```bash
+npx http-server ./ 8080
+```
+
+## 변경 감지 컴파일
+
+```bas
+npx webpack --watch
+```
 
 ## 명령어로 번들링
 
