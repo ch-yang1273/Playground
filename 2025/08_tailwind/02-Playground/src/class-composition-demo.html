@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tailwind CSS 필터 구성 데모</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+<div class="max-w-4xl mx-auto">
+  <h1 class="text-3xl font-bold mb-8 text-center">Tailwind CSS 클래스 구성 데모</h1>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <!-- 원본 이미지 -->
+    <div class="bg-white p-4 rounded-lg shadow">
+      <h3 class="text-lg font-semibold mb-4">원본</h3>
+      <div class="w-full h-40 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded"></div>
+      <p class="text-sm text-gray-600 mt-2">class=""</p>
+    </div>
+
+    <!-- blur-sm만 적용 -->
+    <div class="bg-white p-4 rounded-lg shadow">
+      <h3 class="text-lg font-semibold mb-4">Blur만</h3>
+      <div class="w-full h-40 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded blur-sm"></div>
+      <p class="text-sm text-gray-600 mt-2">class="blur-sm"</p>
+    </div>
+
+    <!-- grayscale만 적용 -->
+    <div class="bg-white p-4 rounded-lg shadow">
+      <h3 class="text-lg font-semibold mb-4">Grayscale만</h3>
+      <div class="w-full h-40 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded grayscale"></div>
+      <p class="text-sm text-gray-600 mt-2">class="grayscale"</p>
+    </div>
+
+    <!-- blur + grayscale 조합 -->
+    <div class="bg-white p-4 rounded-lg shadow">
+      <h3 class="text-lg font-semibold mb-4">Blur + Grayscale</h3>
+      <div class="w-full h-40 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded blur-sm grayscale"></div>
+      <p class="text-sm text-gray-600 mt-2">class="blur-sm grayscale"</p>
+    </div>
+
+    <!-- brightness만 적용 -->
+    <div class="bg-white p-4 rounded-lg shadow">
+      <h3 class="text-lg font-semibold mb-4">Brightness만</h3>
+      <div class="w-full h-40 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded brightness-75"></div>
+      <p class="text-sm text-gray-600 mt-2">class="brightness-75"</p>
+    </div>
+
+    <!-- 3가지 효과 조합 -->
+    <div class="bg-white p-4 rounded-lg shadow">
+      <h3 class="text-lg font-semibold mb-4">3가지 조합</h3>
+      <div class="w-full h-40 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded blur-sm grayscale brightness-75"></div>
+      <p class="text-sm text-gray-600 mt-2">class="blur-sm grayscale brightness-75"</p>
+    </div>
+
+    <!-- 복잡한 조합 -->
+    <div class="bg-white p-4 rounded-lg shadow">
+      <h3 class="text-lg font-semibold mb-4">복잡한 조합</h3>
+      <div class="w-full h-40 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded blur-sm grayscale brightness-50 contrast-125"></div>
+      <p class="text-sm text-gray-600 mt-2">class="blur-sm grayscale brightness-50 contrast-125"</p>
+    </div>
+
+    <!-- 호버 효과 -->
+    <div class="bg-white p-4 rounded-lg shadow">
+      <h3 class="text-lg font-semibold mb-4">호버 효과</h3>
+      <div class="w-full h-40 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 rounded blur-sm grayscale transition-all duration-300 hover:blur-none hover:grayscale-0 cursor-pointer"></div>
+      <p class="text-sm text-gray-600 mt-2">호버해보세요!</p>
+    </div>
+  </div>
+
+  <div class="mt-12 bg-white p-6 rounded-lg shadow">
+    <h2 class="text-2xl font-bold mb-4">생성되는 CSS 예시</h2>
+    <pre class="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+<code>.blur-sm {
+  --tw-blur: blur(4px);
+  filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-grayscale,) var(--tw-contrast,);
+}
+
+.grayscale {
+  --tw-grayscale: grayscale(100%);
+  filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-grayscale,) var(--tw-contrast,);
+}
+
+.brightness-75 {
+  --tw-brightness: brightness(0.75);
+  filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-grayscale,) var(--tw-contrast,);
+}</code>
+            </pre>
+    <p class="text-gray-600 mt-4">
+      각 클래스는 동일한 CSS를 생성하지만, CSS 변수를 통해 조합된 효과가 적용됩니다.
+    </p>
+  </div>
+</div>
+</body>
+</html>
