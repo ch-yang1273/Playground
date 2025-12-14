@@ -5,58 +5,82 @@ import v3.creator.*;
 /**
  * v3 데모: 팩토리 메서드 패턴 (Factory Method Pattern)
  *
- * GoF 디자인 패턴의 최종 형태입니다.
- * OCP(개방-폐쇄 원칙)를 완전히 준수합니다.
+ * 이 데모에서 Creator가 필요한 이유를 명확히 보여줍니다:
+ * 1. 공통 로직 (로깅, 검증, 기록) - 템플릿 메서드
+ * 2. 의존성 주입 - NotificationService
  */
 public class Main {
     public static void main(String[] args) {
-        System.out.println("========================================");
-        System.out.println("  v3: 팩토리 메서드 패턴");
-        System.out.println("========================================");
+        System.out.println("================================================================");
+        System.out.println("  v3: 팩토리 메서드 패턴 - Creator가 필요한 이유");
+        System.out.println("================================================================");
         System.out.println();
 
-        // 각 Creator를 통해 알림 발송
-        // 클라이언트는 구체적인 Notification 클래스를 전혀 알 필요가 없음!
+        // ============================================================
+        // 1. Creator의 공통 로직 (템플릿 메서드) 데모
+        // ============================================================
+        System.out.println("[ 데모 1: Creator의 공통 로직 ]");
+        System.out.println("Creator가 로깅, 검증, 기록 저장을 자동으로 처리합니다.");
+        System.out.println("이 로직이 없다면 4개의 Notification에 각각 작성해야 합니다!");
+        System.out.println("------------------------------------------------------------");
+
         NotificationCreator emailCreator = new EmailNotificationCreator();
-        NotificationCreator smsCreator = new SMSNotificationCreator();
-        NotificationCreator pushCreator = new PushNotificationCreator();
-        NotificationCreator slackCreator = new SlackNotificationCreator();
-
-        // Creator의 템플릿 메서드를 통해 알림 발송
         emailCreator.sendNotification("회원가입을 환영합니다!");
-        smsCreator.sendNotification("인증번호: 123456");
-        pushCreator.sendNotification("새로운 메시지가 도착했습니다.");
-        slackCreator.sendNotification("배포가 완료되었습니다.");
 
-        System.out.println("========================================");
-        System.out.println("  v2 대비 개선점 (최종)");
-        System.out.println("========================================");
-        System.out.println("1. if-else가 완전히 제거됨");
-        System.out.println("2. 새 채널 추가 시 기존 코드 수정 불필요 (OCP 준수)");
-        System.out.println("3. 객체 생성을 서브클래스에 위임 (DIP 준수)");
-        System.out.println();
+        // ============================================================
+        // 2. 유효성 검사 데모
+        // ============================================================
+        System.out.println("[ 데모 2: 공통 유효성 검사 ]");
+        System.out.println("빈 메시지를 발송하면 Creator가 자동으로 검증합니다.");
+        System.out.println("------------------------------------------------------------");
 
-        System.out.println("========================================");
-        System.out.println("  새 채널 추가 방법 (예: 카카오톡)");
-        System.out.println("========================================");
-        System.out.println("1. KakaotalkNotification 클래스 생성 (Notification 구현)");
-        System.out.println("2. KakaotalkNotificationCreator 클래스 생성 (Creator 상속)");
-        System.out.println("3. 기존 코드는 전혀 수정하지 않음!");
-        System.out.println();
-
-        // 다형성 활용 예시
-        System.out.println("========================================");
-        System.out.println("  다형성 활용 예시");
-        System.out.println("========================================");
-        NotificationCreator[] creators = {
-            new EmailNotificationCreator(),
-            new SMSNotificationCreator(),
-            new PushNotificationCreator(),
-            new SlackNotificationCreator()
-        };
-
-        for (NotificationCreator creator : creators) {
-            creator.sendNotification("동일한 메시지를 여러 채널로 발송!");
+        try {
+            emailCreator.sendNotification("");  // 빈 메시지 - 예외 발생!
+        } catch (IllegalArgumentException e) {
+            System.out.println("[예외 발생] " + e.getMessage());
+            System.out.println();
         }
+
+        // ============================================================
+        // 3. 의존성 주입 데모 (NotificationService)
+        // ============================================================
+        System.out.println("[ 데모 3: 의존성 주입 - Creator 교체만으로 채널 변경 ]");
+        System.out.println("NotificationService는 구체적인 Notification을 모릅니다!");
+        System.out.println("Creator만 교체하면 알림 채널이 변경됩니다.");
+        System.out.println("------------------------------------------------------------");
+
+        // 이메일로 알림 발송
+        NotificationService service = new NotificationService(new EmailNotificationCreator());
+        service.notifyUser("user123", "주문이 완료되었습니다.");
+
+        // Creator만 교체하면 슬랙으로 변경! (코드 수정 없음)
+        service.setCreator(new SlackNotificationCreator());
+        service.notifyUser("user123", "주문이 완료되었습니다.");
+
+        // ============================================================
+        // 4. 발송 기록 조회
+        // ============================================================
+        System.out.println("[ 데모 4: 발송 기록 조회 ]");
+        System.out.println("Creator가 자동으로 저장한 발송 기록입니다.");
+        System.out.println("------------------------------------------------------------");
+
+        System.out.println("=== 발송 기록 ===");
+        for (String record : NotificationCreator.getHistory()) {
+            System.out.println("  " + record);
+        }
+        System.out.println();
+
+        // ============================================================
+        // 요약
+        // ============================================================
+        System.out.println("================================================================");
+        System.out.println("  Creator가 필요한 이유 요약");
+        System.out.println("================================================================");
+        System.out.println("1. 공통 로직 재사용: 로깅, 검증, 기록 저장을 한 곳에서 관리");
+        System.out.println("2. 의존성 주입: Creator만 교체하면 알림 채널 변경 가능");
+        System.out.println("3. OCP 준수: 새 채널 추가 시 기존 코드 수정 불필요");
+        System.out.println();
+        System.out.println("만약 Creator가 없다면?");
+        System.out.println("-> 4개의 Notification에 로깅, 검증, 기록 로직을 중복 작성해야 함!");
     }
 }
